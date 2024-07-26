@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js-practice</title>
+</head>
+<body>
+     
+    <h1 style="text-align: center; font-size: 40px;"><u>Hello EveryOne, Welcome to the best javascript course^.^</u></h1>
+     <h2>js window object</h2>
+   <button onclick="window.open('https://www.youtube.com/watch?v=13gLB6hDHR8&t=36053s', '_blank')">Navigate</button>
+
+    <h2>js history object</h2>
+    <button onclick="history.back()">go back</button>
+    <button onclick="history.forward()">go forward</button>
+    <button onclick="history.go(-1)">move backward or forward</button>
+
+    <h2>js location object</h2>
+    <button onclick="location.reload()">Reload the page</button>
+    <button onclick="window.location.replace('https://www.youtube.com/watch?v=13gLB6hDHR8&t=36053s')">navigate page using replace</button>
+    <button onclick="window.location.assign('https://www.youtube.com/watch?v=13gLB6hDHR8&t=36053s')">navigate page with assign</button>
+
+    <h2>js  screen object</h2>
+    <!-- <p>we will see in console.</p> -->
+
+    <div>
+        <h1 id="heading">DOM API</h1>
+        <ul class="List-of-nodes">
+            <li>1 node</li>
+            <li>2 node</li>
+            <li>3 node</li>
+            <!-- jlkajkjdkjdk -->
+            <li>4 node</li>
+            <li style="display: none;">5 node</li>
+        </ul>
+    </div>
+
+    <div>
+        <h2>DOM API 2</h2>
+        <input type="text">
+        <button>click me</button>
+        <div class="value"></div>
+    </div>
+
+    <div>
+        <h3>Simple Dom Todo App</h2>
+            <input type="text" id="inputField">
+            <button class="btn">click me</button>
+            <div class="todoListsElem"></div>
+    </div>
+
+  <script>
+            //////////// id/////////
+
+    // let findElementId = document.getElementById("heading")
+    // console.log(findElementId);
+    // console.log(findElementId.innerHTML);
+    // console.log(findElementId.textContent);
+    // console.log(findElementId.innerText);
+
+        /////////////// class ///////////////////
+
+    // let findElementClassName = document.getElementsByClassName("List-of-nodes");
+    // console.log(findElementClassName);
+    // console.log(...findElementClassName); // class ka data get karna kaliye ya ... ya for loop
+    // for(let elem of findElementClassName){
+    //     console.log(elem.innerHTML);
+    //     console.log(elem.innerText);
+    //     console.log(elem.textContent);
+    // }
+              
+            /////////////// tagename ////////
+
+    // let findElementTageName = document.getElementsByTagName("li");
+    // console.log(findElementTageName);
+
+    // for(let name of findElementTageName){
+    //     console.log(name);
+    // }
+
+
+    ////////////////// queryselector //////////////////////
+     
+    // let findElementByQuerySelector = document.querySelector("#heading");
+    // console.log(findElementByQuerySelector);
+    // console.log(findElementByQuerySelector.innerHTML = "Vinod Thapa");
+     
+    
+    // let findElementByQuerySelector = document.querySelectorAll("li");
+    // console.log(findElementByQuerySelector);
+    // findElementByQuerySelector.forEach((curElem)=>{
+    //     console.log(curElem); /// data kaliye loop chala na parta hai ok samja
+    // })
+
+     /////////////// todo app //////////////
+
+     let inputElem = document.getElementById("inputField")
+     let clickBtn =  document.querySelector(".btn");
+     let todoElem =  document.querySelector(".todoListsElem");
+
+
+    const addToDo = () => {
+        console.log(inputElem.value);
+        let pElem = document.createElement("p");
+        pElem.textContent = inputElem.value;
+        console.log(pElem);
+        todoElem.append(pElem);
+        inputElem.value = "";
+    }
+
+     clickBtn.addEventListener('click', () => {
+       addToDo();
+     });
+
+     
+     todoElem.addEventListener('click', (event) => {
+       console.log(event.target);
+       let currElem =  event.target;
+       currElem.remove();
+         });
+    
+
+  </script>
+
+
+    <script src="app.js"></script>
+</body>
+</html>
